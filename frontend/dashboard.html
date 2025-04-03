@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Student Dashboard System</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="min-h-screen flex">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white shadow-lg">
+            <div class="h-16 flex items-center justify-center border-b">
+                <i class="fas fa-graduation-cap text-2xl text-primary-600 mr-2"></i>
+                <span class="text-xl font-semibold text-gray-800">Dashboard</span>
+            </div>
+            
+            <nav class="mt-6">
+                <div class="px-4 py-2">
+                    <div class="flex items-center space-x-2 text-sm text-gray-500">
+                        <i class="fas fa-user"></i>
+                        <span id="userRole">Student</span>
+                    </div>
+                    <div class="text-sm font-medium text-gray-900" id="userName">John Doe</div>
+                </div>
+                
+                <div class="mt-6 px-4">
+                    <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                        Main
+                    </div>
+                    
+                    <a href="#" class="mt-4 flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary-600 rounded-lg transition-colors">
+                        <i class="fas fa-home w-5"></i>
+                        <span class="ml-2">Overview</span>
+                    </a>
+                    
+                    <a href="#" class="mt-2 flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary-600 rounded-lg transition-colors">
+                        <i class="fas fa-calendar-alt w-5"></i>
+                        <span class="ml-2">Timetable</span>
+                    </a>
+                    
+                    <a href="#" class="mt-2 flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary-600 rounded-lg transition-colors">
+                        <i class="fas fa-tasks w-5"></i>
+                        <span class="ml-2">Assignments</span>
+                    </a>
+                    
+                    <a href="#" class="mt-2 flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary-600 rounded-lg transition-colors">
+                        <i class="fas fa-chart-line w-5"></i>
+                        <span class="ml-2">Performance</span>
+                    </a>
+                </div>
+                
+                <div class="mt-6 px-4">
+                    <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                        Academic
+                    </div>
+                    
+                    <a href="#" class="mt-4 flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary-600 rounded-lg transition-colors">
+                        <i class="fas fa-file-alt w-5"></i>
+                        <span class="ml-2">Marksheets</span>
+                    </a>
+                    
+                    <a href="#" class="mt-2 flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary-600 rounded-lg transition-colors">
+                        <i class="fas fa-user-check w-5"></i>
+                        <span class="ml-2">Attendance</span>
+                    </a>
+                    
+                    <a href="#" class="mt-2 flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary-600 rounded-lg transition-colors">
+                        <i class="fas fa-trophy w-5"></i>
+                        <span class="ml-2">Achievements</span>
+                    </a>
+                </div>
+                
+                <div class="mt-6 px-4">
+                    <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                        Tools
+                    </div>
+                    
+                    <a href="#" class="mt-4 flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary-600 rounded-lg transition-colors">
+                        <i class="fas fa-stopwatch w-5"></i>
+                        <span class="ml-2">Stopwatch</span>
+                    </a>
+                    
+                    <a href="#" class="mt-2 flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary-600 rounded-lg transition-colors">
+                        <i class="fas fa-microphone w-5"></i>
+                        <span class="ml-2">Voice Assistant</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1">
+            <!-- Top Navigation -->
+            <header class="h-16 bg-white shadow-sm flex items-center justify-between px-6">
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-500 hover:text-gray-600">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="text-lg font-medium text-gray-800">Overview</h1>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-500 hover:text-gray-600 relative">
+                        <i class="fas fa-bell"></i>
+                        <span class="absolute top-0 right-0 -mt-1 -mr-1 px-1.5 py-0.5 bg-red-500 text-white text-xs rounded-full">3</span>
+                    </button>
+                    
+                    <div class="relative">
+                        <button class="flex items-center space-x-2 text-gray-700 hover:text-gray-900" id="userMenuButton">
+                            <img class="h-8 w-8 rounded-full bg-gray-200" src="https://ui-avatars.com/api/?name=John+Doe" alt="User avatar">
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        
+                        <!-- User Menu Dropdown -->
+                        <div class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1" id="userMenu">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                            <div class="border-t border-gray-100"></div>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" id="logoutButton">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <main class="p-6">
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-primary-100 text-primary-600">
+                                <i class="fas fa-user-graduate text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-sm font-medium text-gray-500">Attendance</h3>
+                                <p class="text-lg font-semibold text-gray-900">85%</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-100 text-green-600">
+                                <i class="fas fa-chart-line text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-sm font-medium text-gray-500">Performance</h3>
+                                <p class="text-lg font-semibold text-gray-900">A Grade</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-yellow-100 text-yellow-600">
+                                <i class="fas fa-trophy text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-sm font-medium text-gray-500">Achievements</h3>
+                                <p class="text-lg font-semibold text-gray-900">12 Badges</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-purple-100 text-purple-600">
+                                <i class="fas fa-tasks text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-sm font-medium text-gray-500">Assignments</h3>
+                                <p class="text-lg font-semibold text-gray-900">5 Pending</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity & Upcoming Events -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Recent Activity -->
+                    <div class="bg-white rounded-lg shadow">
+                        <div class="p-6 border-b">
+                            <h2 class="text-lg font-medium text-gray-900">Recent Activity</h2>
+                        </div>
+                        <div class="p-6">
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="p-2 rounded-full bg-blue-100 text-blue-600">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-gray-900">Mathematics Assignment Submitted</p>
+                                        <p class="text-sm text-gray-500">2 hours ago</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="p-2 rounded-full bg-green-100 text-green-600">
+                                        <i class="fas fa-trophy"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-gray-900">Earned "Perfect Attendance" Badge</p>
+                                        <p class="text-sm text-gray-500">Yesterday</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="p-2 rounded-full bg-purple-100 text-purple-600">
+                                        <i class="fas fa-user-check"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-gray-900">Attended Physics Lab Session</p>
+                                        <p class="text-sm text-gray-500">2 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Events -->
+                    <div class="bg-white rounded-lg shadow">
+                        <div class="p-6 border-b">
+                            <h2 class="text-lg font-medium text-gray-900">Upcoming Events</h2>
+                        </div>
+                        <div class="p-6">
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="p-2 rounded-full bg-red-100 text-red-600">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-gray-900">Chemistry Mid-term Exam</p>
+                                        <p class="text-sm text-gray-500">Tomorrow, 10:00 AM</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="p-2 rounded-full bg-yellow-100 text-yellow-600">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-gray-900">Project Presentation</p>
+                                        <p class="text-sm text-gray-500">Next Week, Monday</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="p-2 rounded-full bg-indigo-100 text-indigo-600">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-gray-900">Group Study Session</p>
+                                        <p class="text-sm text-gray-500">Next Week, Wednesday</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Toggle user menu
+        const userMenuButton = document.getElementById('userMenuButton');
+        const userMenu = document.getElementById('userMenu');
+        
+        userMenuButton.addEventListener('click', () => {
+            userMenu.classList.toggle('hidden');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!userMenuButton.contains(e.target) && !userMenu.contains(e.target)) {
+                userMenu.classList.add('hidden');
+            }
+        });
+        
+        // Logout functionality
+        document.getElementById('logoutButton').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('token');
+            window.location.href = '/';
+        });
+        
+        // Load user data
+        async function loadUserData() {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    window.location.href = '/';
+                    return;
+                }
+                
+                const response = await fetch('/api/auth/profile', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to load user data');
+                }
+                
+                const userData = await response.json();
+                document.getElementById('userName').textContent = userData.name;
+                document.getElementById('userRole').textContent = userData.role;
+                
+            } catch (error) {
+                console.error('Error loading user data:', error);
+                window.location.href = '/';
+            }
+        }
+        
+        // Load user data on page load
+        loadUserData();
+    </script>
+</body>
+</html>
